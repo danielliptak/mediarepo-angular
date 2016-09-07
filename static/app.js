@@ -7,14 +7,15 @@ myFirstAppInAng.config(['$routeProvider', function ($routeProvider){
     templateUrl: './static/views/home.html'
   })
   .when('/login', {
-    templateUrl: './static/views/login.html'
+    templateUrl: './static/views/login.html',
+    controller: 'loginController'
   })
   .when('/users', {
     templateUrl: './static/views/users.html'
   })
   .when('/signin', {
     templateUrl: './static/views/signin.html',
-    controller: 'FormController'
+    controller: 'signinController'
   }).otherwise({
     redirectTo: '/'
   });
@@ -41,11 +42,22 @@ myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope,
 
 }]);
 
-myFirstAppInAng.controller('FormController', ['$scope', '$http', function($scope, $http){
+myFirstAppInAng.controller('signinController', ['$scope', '$http', function($scope, $http){
 
-  $scope.submit = function () {
+  $scope.signin = function () {
     var data = {'username':$scope.username, 'email':$scope.email.txt, 'password':$scope.pw}
     $http.post('/api/users', data).success(function(data) {
+      console.log('Alabama');
+    })
+  }
+
+}]);
+
+myFirstAppInAng.controller('loginController', ['$scope', '$http', function($scope, $http){
+
+  $scope.login = function () {
+    var data = {'email':$scope.email.txt, 'password':$scope.pw}
+    $http.post('/api/users/login', data).success(function(data) {
       console.log('Alabama');
     })
   }

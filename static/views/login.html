@@ -1,6 +1,9 @@
-<label for="">E-mail
-  <input type="email" ng-model="email.txt" placeholder="user@mail.hu" required>
-</label>
-<label for="">Password
-  <input type="password" ng-model="pw" placeholder="password" pattern=".{6,}" title="Please enter 6 characters or more." required>
-</label>
+<form class="signin" ng-submit="login()" ng-controller="loginController">
+  <label for="">E-mail
+    <input type="email" ng-model="email.txt" placeholder="user@mail.hu" required>
+  </label>
+  <label for="">Password
+    <input type="password" ng-model="pw" placeholder="password" pattern=".{6,}" title="Please enter 6 characters or more." required>
+  </label>
+  <input type="submit" name="name" value="submit">
+</form>
