@@ -12,11 +12,12 @@ myFirstAppInAng.config(['$stateProvider', '$urlRouterProvider', function ($state
     .state('login', {
       url: '/login',
       templateUrl: '../static/views/login.html',
+      controller: 'loginController'
     })
     .state('signin', {
       url: '/register',
       templateUrl: '../static/views/signin.html',
-      controller: 'FormController'
+      controller: 'signinController'
     })
     .state('users', {
       url: '/users',
@@ -24,6 +25,18 @@ myFirstAppInAng.config(['$stateProvider', '$urlRouterProvider', function ($state
       controller: 'xhrController'
     })
 }]);
+
+myFirstAppInAng.directive('wjValidationError', function () {
+  return {
+    require: 'ngModel',
+    link: function (scope, elm, attrs, ctl) {
+      scope.$watch(attrs['wjValidationError'], function (errorMsg) {
+        elm[0].setCustomValidity(errorMsg);
+        ctl.$setValidity('wjValidationError', errorMsg ? false : true);
+      });
+    }
+  };
+});
 
 myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope, $http){
 
@@ -33,11 +46,22 @@ myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope,
 
 }]);
 
-myFirstAppInAng.controller('FormController', ['$scope', '$http', function($scope, $http){
+myFirstAppInAng.controller('signinController', ['$scope', '$http', function($scope, $http){
 
-  $scope.submit = function () {
+  $scope.signin = function () {
     var data = {'username':$scope.username, 'email':$scope.email.txt, 'password':$scope.pw}
     $http.post('/api/users', data).success(function(data) {
+      console.log('Alabama');
+    })
+  }
+
+}]);
+
+myFirstAppInAng.controller('loginController', ['$scope', '$http', function($scope, $http){
+
+  $scope.login = function () {
+    var data = {'email':$scope.email.txt, 'password':$scope.pw}
+    $http.post('/api/users/login', data).success(function(data) {
       console.log('Alabama');
     })
   }

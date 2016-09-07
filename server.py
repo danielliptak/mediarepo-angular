@@ -7,7 +7,7 @@ def index():
     return render_template('index.html')
 
 @app.route("/api/users", methods=["GET"])
-# @login_required
+@login_required
 def get_all_user():
     return list_all_user()
 

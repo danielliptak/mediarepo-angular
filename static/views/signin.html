@@ -1,32 +1,32 @@
-<div ng-controller="FormController" class="wrapper">
-  <form class="form-horizontal" ng-submit="submit()">
+<div ng-controller="signinController" class="wrapper">
+  <form class="form-horizontal" ng-submit="signin()">
     <div class="form-group">
       <label for="name" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-8">
-        <input class="form-control" id="name" type="text" ng-model="username" placeholder="please enter your username here">
+        <input class="form-control" id="name" type="text" ng-model="username" placeholder="please enter your username here" required>
       </div>
     </div>
     <div class="form-group">
       <label for="email" class="col-sm-4 control-label">E-mail</label>
       <div class="col-sm-8">
-        <input class="form-control" id="email" type="email" ng-model="email.txt" placeholder="user@mail.hu">
+        <input class="form-control" id="email" type="email" ng-model="email.txt" placeholder="user@mail.hu" required>
       </div>
     </div>
     <div class="form-group">
       <label for="pw" class="col-sm-4 control-label">Password</label>
       <div class="col-sm-8">
-        <input class="form-control" id="pw" type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
+        <input class="form-control" id="pw" type="password" ng-model="pw" placeholder="password" pattern=".{6,}" title="Please enter 6 characters or more." required>
       </div>
     </div>
     <div class="form-group">
       <label for="rppw" class="col-sm-4 control-label">Repeat your password</label>
       <div class="col-sm-8">
-        <input class="form-control" id="rppw" type="text" ng-model="rppw" placeholder="confirm password">
+        <input class="form-control" id="rppw" type="password" ng-model="rppw" placeholder="confirm password" wj-validation-error="rppw != pw ? 'Passwords don\'t match' : ''" required>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
-        <button ui-sref="users" type="submit" class="btn btn-primary">Register</button>
+        <button ui-sref="users" name="name" type="submit" class="btn btn-primary">Register</button>
       </div>
     </div>
   </form>
