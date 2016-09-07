@@ -1,15 +1,15 @@
-<form class="signin" ng-submit="submit()" ng-controller="FormController">
+<form class="signin" ng-submit="submit()">
   <label for="">Username
-    <input type="text" ng-model="username" placeholder="please enter your username here">
+    <input type="text" ng-model="username" placeholder="please enter your username here" required>
   </label>
   <label for="">E-mail
-    <input type="email" ng-model="email.txt" placeholder="user@mail.hu">
+    <input type="email" ng-model="email.txt" placeholder="user@mail.hu" required>
   </label>
   <label for="">Password
-    <input type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
+    <input type="password" ng-model="pw" placeholder="password" pattern=".{6,}" title="Please enter 6 characters or more." required>
   </label>
   <label for="">Repeate your password
-    <input type="text" ng-model="rppw" placeholder="confirm password">
+    <input type="password" ng-model="rppw" placeholder="confirm password" wj-validation-error="rppw != pw ? 'Passwords don\'t match' : ''" required>
   </label>
-  <input type="submit" name="name" value="submit">
+  <input type="submit" name="name" value="submit" ng-disabled="signin.$valid">
 </form>

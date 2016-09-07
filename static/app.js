@@ -9,6 +9,9 @@ myFirstAppInAng.config(['$routeProvider', function ($routeProvider){
   .when('/login', {
     templateUrl: './static/views/login.html'
   })
+  .when('/users', {
+    templateUrl: './static/views/users.html'
+  })
   .when('/signin', {
     templateUrl: './static/views/signin.html',
     controller: 'FormController'
@@ -18,6 +21,17 @@ myFirstAppInAng.config(['$routeProvider', function ($routeProvider){
 
 }]);
 
+myFirstAppInAng.directive('wjValidationError', function () {
+  return {
+    require: 'ngModel',
+    link: function (scope, elm, attrs, ctl) {
+      scope.$watch(attrs['wjValidationError'], function (errorMsg) {
+        elm[0].setCustomValidity(errorMsg);
+        ctl.$setValidity('wjValidationError', errorMsg ? false : true);
+      });
+    }
+  };
+});
 
 myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope, $http){
 
