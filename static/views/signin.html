@@ -1,17 +1,33 @@
-<div ng-controller="FormController">
-  <form class="signin" ng-submit="submit()">
-    <label for="">Username
-      <input type="text" ng-model="username" placeholder="please enter your username here">
-    </label>
-    <label for="">E-mail
-      <input type="email" ng-model="email.txt" placeholder="user@mail.hu">
-    </label>
-    <label for="">Password
-      <input type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
-    </label>
-    <label for="">Repeate your password
-      <input type="text" ng-model="rppw" placeholder="confirm password">
-    </label>
-    <input type="submit" name="name" value="submit">
+<div ng-controller="FormController" class="wrapper">
+  <form class="form-horizontal" ng-submit="submit()">
+    <div class="form-group">
+      <label for="name" class="col-sm-4 control-label">Username</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="name" type="text" ng-model="username" placeholder="please enter your username here">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-4 control-label">E-mail</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="email" type="email" ng-model="email.txt" placeholder="user@mail.hu">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pw" class="col-sm-4 control-label">Password</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="pw" type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="rppw" class="col-sm-4 control-label">Repeat your password</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="rppw" type="text" ng-model="rppw" placeholder="confirm password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <button ui-sref="users" type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </div>
   </form>
 </div>

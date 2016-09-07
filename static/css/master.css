@@ -1,0 +1,31 @@
+.wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.landing-page {
+  text-align: center;
+}
+
+.menu {
+  background: #93fc7e;
+  height: 50px;
+  padding-top: 15px;
+}
+
+.form-horizontal {
+  padding: 20px 0;
+}
+
+.menu-btn {
+  color: black;
+}
+
+.menu-btn:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+table.table {
+  margin-top: 20px;
+}

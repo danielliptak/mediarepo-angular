@@ -1,7 +1,14 @@
-{% raw %}
-<div ng-controller="xhrController">
-  <ul>
-    <li ng-repeat="user in users">{{user.username}}</li>
-  </ul>
+<!-- {% raw %} -->
+<div ng-controller="xhrController" class="wrapper">
+  <table class="table table-striped">
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+    <tr ng-repeat="user in users">
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </table>
 </div>
-{% endraw %}
+<!-- {% endraw %} -->

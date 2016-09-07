@@ -8,7 +8,6 @@ myFirstAppInAng.config(['$stateProvider', '$urlRouterProvider', function ($state
     .state('homepage', {
       url: '/',
       templateUrl: '../static/views/home.html',
-      // controller: 'MainCtrl'
     })
     .state('login', {
       url: '/login',
@@ -18,6 +17,11 @@ myFirstAppInAng.config(['$stateProvider', '$urlRouterProvider', function ($state
       url: '/register',
       templateUrl: '../static/views/signin.html',
       controller: 'FormController'
+    })
+    .state('users', {
+      url: '/users',
+      templateUrl: '../static/views/users.html',
+      controller: 'xhrController'
     })
 }]);
 
