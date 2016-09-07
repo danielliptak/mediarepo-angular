@@ -1,15 +1,17 @@
-<form class="signin" ng-submit="submit()" ng-controller="FormController">
-  <label for="">Username
-    <input type="text" ng-model="username" placeholder="please enter your username here">
-  </label>
-  <label for="">E-mail
-    <input type="email" ng-model="email.txt" placeholder="user@mail.hu">
-  </label>
-  <label for="">Password
-    <input type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
-  </label>
-  <label for="">Repeate your password
-    <input type="text" ng-model="rppw" placeholder="confirm password">
-  </label>
-  <input type="submit" name="name" value="submit">
-</form>
+<div ng-controller="FormController">
+  <form class="signin" ng-submit="submit()">
+    <label for="">Username
+      <input type="text" ng-model="username" placeholder="please enter your username here">
+    </label>
+    <label for="">E-mail
+      <input type="email" ng-model="email.txt" placeholder="user@mail.hu">
+    </label>
+    <label for="">Password
+      <input type="text" ng-model="pw" placeholder="password" value="{{kacsa}}">
+    </label>
+    <label for="">Repeate your password
+      <input type="text" ng-model="rppw" placeholder="confirm password">
+    </label>
+    <input type="submit" name="name" value="submit">
+  </form>
+</div>

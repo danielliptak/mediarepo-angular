@@ -1,23 +1,25 @@
-var myFirstAppInAng = angular.module('app', ['ngRoute']);
+'use strict';
 
-myFirstAppInAng.config(['$routeProvider', function ($routeProvider){
+var myFirstAppInAng = angular.module('app', ['ui.router']);
 
-  $routeProvider
-  .when('/', {
-    templateUrl: './static/views/home.html'
-  })
-  .when('/login', {
-    templateUrl: './static/views/login.html'
-  })
-  .when('/signin', {
-    templateUrl: './static/views/signin.html',
-    controller: 'FormController'
-  }).otherwise({
-    redirectTo: '/'
-  });
-
+myFirstAppInAng.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
+  $stateProvider
+    .state('homepage', {
+      url: '/',
+      templateUrl: '../static/views/home.html',
+      // controller: 'MainCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '../static/views/login.html',
+    })
+    .state('signin', {
+      url: '/register',
+      templateUrl: '../static/views/signin.html',
+      controller: 'FormController'
+    })
 }]);
-
 
 myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope, $http){
 

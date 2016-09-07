@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='app'>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="../static/css/master.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script> -->
+    <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="../static/app.js"></script>
   </head>
-  <body>
-    <!-- <header ng-include="'header.html'"></header> -->
-    <p>
-      Test
-    </p>
-    <main ng-view></main>
+  <body ng-app='app'>
+    <header ng-include="'../static/views/header.html'"></header>
+    <div ui-view></div>
   </body>
 </html>
