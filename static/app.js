@@ -46,23 +46,23 @@ myFirstAppInAng.controller('xhrController', ['$scope', '$http', function($scope,
 
 }]);
 
-myFirstAppInAng.controller('signinController', ['$scope', '$http', function($scope, $http){
+myFirstAppInAng.controller('signinController', ['$scope', '$http', '$state', function($scope, $http, $state){
 
   $scope.signin = function () {
     var data = {'username':$scope.username, 'email':$scope.email.txt, 'password':$scope.pw}
     $http.post('/api/users', data).success(function(data) {
-      console.log('Alabama');
+      $state.go('users')
     })
   }
 
 }]);
 
-myFirstAppInAng.controller('loginController', ['$scope', '$http', function($scope, $http){
+myFirstAppInAng.controller('loginController', ['$scope', '$http', '$state', function($scope, $http, $state){
 
   $scope.login = function () {
     var data = {'email':$scope.email.txt, 'password':$scope.pw}
     $http.post('/api/users/login', data).success(function(data) {
-      console.log('Alabama');
+      $state.go('users');
     })
   }
 
